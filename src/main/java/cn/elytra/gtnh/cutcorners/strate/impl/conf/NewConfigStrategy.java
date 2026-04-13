@@ -128,7 +128,7 @@ public class NewConfigStrategy implements ICutCornerStrategy {
     public int getMaxSpecialFurnaceSmeltingTime(int original) {
         // delegate to furnace.
         // to rational, it works as intended.
-        // to fixed, everything is pull to a same speed, so it's not a problem.
+        // to fixed, it now acts as an upper bound clamp, so faster recipes stay fast.
         return getMaxFurnaceSmeltingTime(original);
     }
 

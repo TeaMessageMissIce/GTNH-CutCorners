@@ -158,7 +158,7 @@ public class CutCornersConfig {
             Mode of Duration Modification
 
             0 = None : Not modifying.
-            1 = Fixed : Durations of recipes are fixed to 'fixedDuration' ticks.
+            1 = Fixed : Durations of recipes are clamped to a maximum of 'fixedDuration' ticks.
             2 = Rational : Durations of recipes are multiplied by 'rationalDuration'. (e.g.: rationalDuration is 0.4, the durations are reduced by 60%.)""");
 
         int fixedDuration = this.config.getInt("fixedDuration", CATEGORY_DURATION_MOD, 1, 1, Integer.MAX_VALUE, "Ticks of the recipe durations.");
