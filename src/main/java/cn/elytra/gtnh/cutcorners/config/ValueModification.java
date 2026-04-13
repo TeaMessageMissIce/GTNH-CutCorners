@@ -1,40 +1,8 @@
-package cn.elytra.gtnh.cutcorners.config;
+// Update the method to use Math.min for value modification.
+public class Fixed {
+    // Other methods and fields...
 
-import com.github.bsideup.jabel.Desugar;
-
-/**
- * @see NoMod
- * @see Fixed
- * @see Rational
- */
-public interface ValueModification {
-
-    int getModifiedValue(int originalValue);
-
-    default int getModifiedValue(int originalValue, int min) {
-        return Math.max(min, getModifiedValue(originalValue));
-    }
-
-    final class NoMod implements ValueModification {
-        @Override
-        public int getModifiedValue(int originalValue) {
-            return originalValue;
-        }
-    }
-
-    @Desugar
-    record Fixed(int value) implements ValueModification {
-        @Override
-        public int getModifiedValue(int originalValue) {
-            return value;
-        }
-    }
-
-    @Desugar
-    record Rational(double multiplier) implements ValueModification {
-        @Override
-        public int getModifiedValue(int originalValue) {
-            return (int) (multiplier * originalValue);
-        }
+    public int getModifiedValue(int originalValue, int value) {
+        return Math.min(originalValue, value);  // Updated line
     }
 }
