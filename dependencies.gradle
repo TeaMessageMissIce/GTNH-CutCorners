@@ -63,6 +63,9 @@ dependencies {
 
     devOnlyNonPublishable("com.github.ElytraServers:conditional-mixin-legacy:1.1.0")
 
+    // Spark optional mixin - compile-only to provide class definitions for Mixin AP
+    compileOnly(files("${System.getProperty('user.home')}/Downloads/spark-1.10.19-forge1710.jar"))
+
     testImplementation(platform("org.junit:junit-bom:5.11.4"))
     testImplementation("org.junit.jupiter:junit-jupiter")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
